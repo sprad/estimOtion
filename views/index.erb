@@ -1,0 +1,43 @@
+<% content_for :head do %>
+  <script type="text/javascript" src="../js/navigation.js"></script>
+<% end %>
+<div id="page-header">
+  <div id="logo"><a href="/"><img src="img/logo.png" /></a></div>
+</div>
+<div id="home-page-wrapper">
+  <div class="home-container">
+    <div id="new-game">
+      <div id="new-game-header">
+        <img src="img/icon-new-game.png" />
+        <h2>New Game</h2>
+      </div>
+      <form id="new-game-form" method="post" class="<% if !flash.has?("errors") %>hidden<%end%>" action="/game/new">
+        <input name="game-name" id="game-name" type="text" class="text" value="<%= flash["game-name"] ||= "Enter a game title..." %>" />
+        <textarea id="game-jql" name="game-jql"><%= flash["game-jql"] ||= "Enter your Jira JQL here..." %></textarea>
+        <input type="submit" class="submit" value="Create a Game">
+      </form>
+      <div id="errors" class="<% if !flash.has?("errors") %>hidden<%end%>">
+      <% if flash.has?("errors") %>
+        <% flash["errors"].each do |error| %>
+          <p><%= error %>.</p>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+    <div id="join-game">
+      <div id="join-game-header">
+        <img src="img/icon-join-game.png" />
+        <h2>Join Game</h2>
+      </div>
+      <form id="join-game-form" method="post" action="/game/join" class="hidden">
+        <select name="game-id-select" id="game-id-select">
+          <option value="">Select a game to join...</option>
+        <% games.each do |game| %>
+          <option value="<%= game.id %>"><%= game.game_name %></option>
+        <% end %>
+        </select>
+        <input type="submit" class="submit" value="Join a Game">
+      </form>
+    </div>
+  </div>
+</div>

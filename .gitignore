@@ -1,0 +1,5 @@
+*~
+*.log
+*.psd
+estimotion_config.yml
+db/game.db

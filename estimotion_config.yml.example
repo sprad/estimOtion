@@ -1,0 +1,6 @@
+jira:
+  server: https://your.jiraserver.com
+  user: your_jira_username
+  password: your_jira_password
+  result_limit: max_number_of_results
+  

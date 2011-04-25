@@ -1,0 +1,62 @@
+<% content_for :head do %>
+    <script type="text/javascript" src="../js/third-party/swfobject.js"></script>
+    <script type="text/javascript" src="../js/third-party/FABridge.js"></script>
+    <script type="text/javascript" src="../js/third-party/web_socket.js"></script>
+    <script type="text/javascript"> 
+      //<![CDATA[
+        WEB_SOCKET_SWF_LOCATION = "../js/third-party/WebSocketMain.swf";
+        var webSocket = new WebSocket("ws://<%= host_name %>:9394/");
+      //]]>
+    </script>
+    <script type="text/javascript" src="../js/application.js"></script>
+<% end %>
+
+<div id="page-header">
+<div id="logo">
+  <div id="card-pile">
+  <span class="pile-label">Candidates</span>
+    <ul id="card-pile-list">
+    </ul>
+  </div>
+  <div id="discard-pile">
+    <span class="pile-label">Discard/NOTFT</span>
+    <ul id="discard-pile-list"></ul>
+  </div>
+  <div id="question-pile">
+    <span class="pile-label">?</span>
+    <ul id="question-pile-list"></ul>
+  </div>
+ </div>
+</div> <!-- logo -->
+</div> <!-- page-header -->
+
+<div id="card-page-wrapper">
+  <div id="card-surface">
+
+    <div id="column-1" class="column clear"><ul id="column-1-list" class="column-list"></ul></div>
+    <div id="column-2" class="column"><ul id="column-2-list" class="column-list"></ul></div>
+    <div id="column-3" class="column"><ul id="column-3-list" class="column-list"></ul></div>
+    <div id="column-4" class="column"><ul id="column-4-list" class="column-list"></ul></div>
+    <div id="column-5" class="column"><ul id="column-5-list" class="column-list"></ul></div>
+    <div id="column-6" class="column"><ul id="column-6-list" class="column-list"></ul></div>
+
+
+  </div> <!-- card-surface -->
+</div> <!-- card-surface-wrapper -->
+<div id="initial-data" class="hidden">
+  <%= json %>
+</div>
+<div id="card-template" class="hidden">
+  <ul>
+    <li id="template-id" class="drag">
+      <div class="jira-card">
+        <div>
+          <h2><a id="link-template" href="https://ticket.opower.com/browse/" target="_blank">0</a></h2>
+        </div>
+        <div>
+          <span id="summary-template" class="summary"></span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

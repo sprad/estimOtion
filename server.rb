@@ -12,8 +12,11 @@ require 'lib/estimotion_helpers'
 require 'rack-flash'
 require 'sinatra/content_for'
 
+
 class EstimOtion < Sinatra::Base
   include EstimotionHelpers
+
+  set :port,  EstimotionConfig.server.port
 
   use Rack::Flash
   set :root, File.dirname(__FILE__)

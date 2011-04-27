@@ -4,12 +4,13 @@ require 'eventmachine'
 require 'json'
 require 'dm-core'
 require 'dm-serializer'
+require 'lib/estimotion_config'
 require 'lib/model/Game'
 require 'lib/model/JiraCard'
 require 'lib/estimotion_helpers'
 
 host = '0.0.0.0'
-port = 9394
+port = EstimotionConfig.websocket_server.port
 
 module FlashPolicyServer  
   def receive_data(data)
@@ -20,7 +21,7 @@ module FlashPolicyServer
       policy = %Q{<?xml version="1.0"?>
   <!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
   <cross-domain-policy>
-    <allow-access-from domain="opower.com" to-ports="9394" />
+    <allow-access-from domain="opower.com" to-ports="#{EstimotionConfig.websocket_server.port}" />
   </cross-domain-policy>
       }
     end

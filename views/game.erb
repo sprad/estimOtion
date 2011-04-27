@@ -5,7 +5,7 @@
     <script type="text/javascript"> 
       //<![CDATA[
         WEB_SOCKET_SWF_LOCATION = "../js/third-party/WebSocketMain.swf";
-        var webSocket = new WebSocket("ws://<%= host_name %>:9394/");
+        var webSocket = new WebSocket("ws://<%= host_name %>:<%= EstimotionConfig.websocket_server.port %>/");
       //]]>
     </script>
     <script type="text/javascript" src="../js/application.js"></script>

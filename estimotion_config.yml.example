@@ -4,3 +4,11 @@ jira:
   password: your_jira_password
   result_limit: max_number_of_results
   
+server:
+  # port that the main server should listen on
+  port: 4567
+
+websocket_server:
+  # port that the websocket server should listen on 
+  port: 9394
+
